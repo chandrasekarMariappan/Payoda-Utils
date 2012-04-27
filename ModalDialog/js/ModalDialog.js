@@ -28,14 +28,16 @@
             };
 
             var modalFooter = "<div class='modal-footer'>     <a href='#' class='btn btn-primary' data-dismiss='modal' title='Dismiss the dialog'>                Close</a>        ";
-            var modalEvents = "<script type='text/javascript'>";
+              if (configs["buttons"] != undefined) {
+               var modalEvents = "<script type='text/javascript'>";
+                var modalEvents = "<script type='text/javascript'>";
+                $.each(configs["buttons"], function(key, value) {
 
-            $.each(configs["buttons"], function (key, value) {
-
-                modalFooter += "<a href='#'  class='btn btn-primary' data-dismiss='modal' id=Sample" + key + " >" + key + "</a>";
-                modalEvents += "$('#Sample" + key + "').click(" + value + ");";
-            });
-            modalEvents += "</script>";
+                    modalFooter += "<a href='#'  class='btn btn-primary' data-dismiss='modal' id=Sample" + key + " >" + key + "</a>";
+                    modalEvents += "$('#Sample" + key + "').click(" + value + ");";
+                });
+                modalEvents += "</script>";
+            } 
             $("body").append(modalEvents);
 
 
