@@ -45,9 +45,12 @@
             message = configs['body'];
             title = configs['title'];
             header = configs['header'];
+            if(isfirstTime ==true)
             $("body").append(" <div id='sample' title='" + title + "' style='display: none' class='modal fade'><div class='modal-header' id='mod-header'><a class='close' data-dismiss='modal' title='Close'><i class='icon-remove'></i></a><h3>                </h3>        </div>        <div class='modal-body' id='mod-body'>            <p>                            </p>        </div>" + modalFooter + "</div>");
-            $("body").append(modalEvents);
-            isfirstTime = false;
+        isfirstTime = false;
+       }
+           $("body").append(modalEvents);
+           
         }
         $('#mod-body').html(message);
         $('#mod-header').html("<a class='close' data-dismiss='modal' title='Close'><i class='icon-remove'></i></a><h3>" + header + "</h3>");
